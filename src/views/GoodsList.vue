@@ -28,9 +28,9 @@
             <div class="accessory-list-wrap">
               <div class="accessory-list col-4">
                 <ul>
-                  <li v-for="item in goodsList.list">
+                  <li v-for="item in goodsList">
                     <div class="pic">
-                      <a href="#"><img v-lazy ="'/static/'+item.productImg" alt=""></a>
+                      <a href="#"><img v-lazy ="'/static/'+item.productImage" alt=""></a>
                     </div>
                     <div class="main">
                       <div class="name">{{item.productName}}</div>
@@ -95,7 +95,7 @@
         getGoodsList(){
           axios.get("/goods").then((result)=>{
             var res = result.data;
-            this.goodsList=res.result;
+            this.goodsList=res.result.list;
           })
         },
         showFilterPop(){
