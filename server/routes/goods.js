@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Goods = require('../models/goods');
 
 //连接MongoDB数据库
-mongoose.connect('mongodb://127.0.0.1:27017/dumall');
+mongoose.connect('mongodb://127.0.0.1:27017/dumall', { useNewUrlParser: true });
 
 mongoose.connection.on("connected",function () {
   console.log("MongoDB connected success.")
@@ -19,7 +19,13 @@ mongoose.connection.on("disconnected",function () {
 });
 
 router.get("/",function (req,res,next) {
-  Goods.find({}).sort({_id: 1}).limit(17).exec(function (err,doc){
+  let page = req.param("page");
+  let sort = req.param("sort");
+
+  let params = {};
+  let goodsModel = Goods.find(params);
+  goodsModel.sort({'salePrice':sort});
+  goodsModel.exec(function (err,doc){
     if(err){
       res.json({
         status:'1',
@@ -35,7 +41,24 @@ router.get("/",function (req,res,next) {
         }
       })
     }
-  })
+  });
+  // Goods.find({}).sort({_id: 1}).limit(17).exec(function (err,doc){
+  //   if(err){
+  //     res.json({
+  //       status:'1',
+  //       msg:err.message
+  //     })
+  //   }else{
+  //     res.json({
+  //       status:'0',
+  //       msg:'',
+  //       result:{
+  //         count:doc.length,
+  //         list:doc
+  //       }
+  //     })
+  //   }
+  // })
 });
 
 module.exports = router;
