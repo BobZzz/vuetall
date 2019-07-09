@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import * as utqil from './util'
 import VueLazyLoad from 'vue-lazyload'
+import infiniteScroll from 'vue-infinite-scroll'
 // import './assets/css/base.css'
 // import './assets/css/checkout.css'
 // import './assets/css/login.css'
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 Vue.use(VueLazyLoad,{
   loading:"/static/loading-svg/loading-bars.svg"
 });
+Vue.use(infiniteScroll)
 // console.log(`sum:${utqil.sum(4,8)}`);
 /* eslint-disable no-new */
 new Vue({

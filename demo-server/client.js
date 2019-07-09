@@ -9,6 +9,6 @@ http.get('http://www.imooc.com/index/getstarlist',(res)=>{
   res.on("end",()=>{
     let result = JSON.parse(data);
     console.log(`result:${result.msg}`)
-    // console.log(`result:${util.inspect(result)}`)
+    console.log(`result:${util.inspect(result)}`)
   })
 })

@@ -1306,3 +1306,8 @@ html {
     font-size: 12px;
   }
 }
+.load-more {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
