@@ -11,9 +11,6 @@ router.get('/test', function(req, res, next) {
 });
 //登录接口
 router.post('/login',(req,res,next)=>{
-  var cookieName1 = req.cookies['fsdfs2424']
-  var cookieName = req.cookies['desKey']
-  debugger
   var param = {
     userName:req.body.userName,
     userPwd:req.body.userPwd

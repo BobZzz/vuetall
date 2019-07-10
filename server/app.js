@@ -21,33 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.all('*', function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-//   res.header("Access-Control-Allow-Credentials",true);
-//   res.header("X-Powered-By",' 3.2.1');
-//   res.header("Content-Type", "application/json;charset=utf-8");
-//   next();
-// });
-
-
-app.use('*',function (req, res, next) {
-  // res.header('Access-Control-Allow-Origin', '*'); //这个表示任意域名都可以访问，这样写不能携带cookie了。
-// res.header('Access-Control-Allow-Origin', 'http://192.168.43.54:9527'); //这样写，只有www.baidu.com 可以访问。
-res.header('Access-Control-Allow-Origin', 'http://localhost:9527'); //这样写，只有www.baidu.com 可以访问。
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');//设置方法
-  res.header('Access-Control-Allow-Credentials', 'true');
-  if (req.method == 'OPTIONS') {
-    debugger
-    res.send(200); // 意思是，在正常的请求之前，会发送一个验证，是否可以请求。
-  }
-  else {
-    next();
-  }
-});
-
 app.use((req,res,next)=>{
   if(req.cookies.userId){
     next()
