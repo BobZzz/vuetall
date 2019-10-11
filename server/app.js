@@ -11,6 +11,11 @@ var goodsRouter = require('./routes/goods');
 var app = express();
 
 // view engine setup
+// 上传设置
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.html',ejs.__express)
 app.set('view engine', 'html');
