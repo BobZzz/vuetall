@@ -4,6 +4,8 @@
       <nav-bread>
         <span>Goods</span>
       </nav-bread>
+      <div style="margin:10px;width:100px;" @click="topage1()">跳转1</div>
+      <div style="margin:10px;width:100px;" @click="topage2()">跳转2</div>
       <div class="accessory-result-page accessory-page">
         <div class="container">
           <div class="filter-nav">
@@ -125,6 +127,12 @@
         this.getGoodsList();
       },
       methods:{
+        topage1(){
+          this.$router.push('/test')
+        },
+        topage2(){
+          this.$router.push('/htmlViewSample')
+        },
         getGoodsList(flag){
           var param = {
             page:this.page,

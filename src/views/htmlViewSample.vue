@@ -1,6 +1,7 @@
 <template>
   <div>
-    <html-panel :url.sync="url1"></html-panel>
+    html
+    <!-- <html-panel :url.sync="url1"></html-panel> -->
     <!-- <html-panel :url.sync="url2"></html-panel> -->
   </div>
 </template>
