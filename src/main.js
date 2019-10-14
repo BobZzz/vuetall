@@ -19,6 +19,9 @@ Vue.use(VueLazyLoad,{
 Vue.use(infiniteScroll)
 // console.log(`sum:${utqil.sum(4,8)}`);
 /* eslint-disable no-new */
+router.afterEach((to,form)=>{
+  gtag('config', 'UA-149713823-1',{'page_path': to.fullPath});
+})
 new Vue({
   el: '#app',
   router,
