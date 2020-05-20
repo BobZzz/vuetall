@@ -7,8 +7,18 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-149713823-1');
+  // gtag('config', 'UA-149713823-1');
+  window.onerror = function (msg, script, line, columns, error) {
+            // debugger
+            gtag('event', 'exception', {
+                 'description': msg,
+                 'fatal': false   // set to true if the error is fatal
+            });
+          console.log(msg);
+          console.log(script);
+          console.log(line);
+          console.log(columns);
+      }
 </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
